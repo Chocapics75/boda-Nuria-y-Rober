@@ -1,0 +1,81 @@
+---
+
+const { pathname } = Astro.url
+const normalizedPathName = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
+
+const pages = [
+	{ name: "Inicio", href: "/" },
+	{ name: "Nuestra historia", href: "/our-story" },
+	{ name: "Detalles", href: "/details" },
+	{ name: "Registro", href: "/register" },
+	{ name: "Contacto", href: "/contact" },
+].map((page) => ({
+	...page,
+	active: normalizedPathName === page.href,
+}))
+
+const isProductIntern = normalizedPathName.startsWith("/nosotros/")
+
+console.log("PATHNAME", pathname)
+console.log("NORMALIZED", normalizedPathName)
+console.log("INTERN", isProductIntern)
+
+//https://dribbble.com/shots/21941585-Wedding-invitation-website-UI-UX-design
+---
+<header class="py-4 px-4 mx-auto max-w-6xl lg:py-6 lg:px-6">
+	<nav class="flex flex-col items-center justify-between w-full text-center md:flex-row">
+		{
+			pages.map(({ name, href, active }, key) => (
+		<>
+			<a href={href} id={`nav-link-${key}`} class:list={[
+					"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-l uppercase lg:flex lg:px-7 xl:px-10",
+					{ "current-page text-white underline underline-offset-4": active },
+					{ "text-gray-500 hover:animate-pulse": !active },
+				]}>
+					<span class="z-12">{name}</span>
+					<div class="background absolute -z-10 h-full w-full" />
+			</a>
+		</>
+		))
+		}
+	</nav>
+</header>
+
+
+<!-- <header class="animate-blur-header fixed top-0 z-60 w-screen">
+	<nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 uppercase lg:px-8 lg:justify-center"  aria-label="Global">
+		<div class="flex">
+			<div class="hidden lg:flex lg:gap-x-3">
+				{
+					pages.map(({ name, href, active }, key) => (
+				<>
+					<a href={href} id={`nav-link-${key}`} class:list={[
+							"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-l uppercase lg:flex lg:px-7 xl:px-10",
+							{ "current-page text-accent_white": active },
+							{ "text-accent_dark hover:animate-pulse": !active },
+						]}>
+                            <span class="z-12">{name}</span>
+                            <div class="background absolute -z-10 h-full w-full" />
+					</a>
+				</>
+				))
+				}
+			</div>
+		</div>
+	</nav>
+	<dialog class="bg-teal-400 z-50 w-full max-h-[80vh] max-w-full translate-x-0 transition-discrete duration-300 lg:hidden starting:-translate-x-full [&:not([open])]:-translate-x-full" id="mobile-menu" role="dialog" aria-modal="true" >
+		<div class="z-10 overflow-y-auto px-6 py-6">
+			<div class="flex items-center justify-between">
+				<div class="flex flex-1">
+					<button type="button" id="close-menu-button" class="-m-2.5 cursor-pointer p-2.5 text-white transition-all duration-300 ease-in will-change-transform hover:scale-150" >
+						<span class="sr-only">Cerrar Menú</span>
+						<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" >
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</dialog>
+</header> -->
+
