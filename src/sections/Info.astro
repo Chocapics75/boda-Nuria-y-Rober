@@ -2,6 +2,7 @@
 import { Image } from "astro:assets"
 
 import CalendarImage from "../assets/images/calendario.webp"
+import FormImage from "../assets/images/form.webp"
 ---
 
 <div class="mx-auto max-w-2xl p-4 pb-32 lg:max-w-6xl" id="info">
@@ -111,8 +112,8 @@ import CalendarImage from "../assets/images/calendario.webp"
       <div class="relative flex h-full flex-col overflow-hidden bg-white rounded-3xl">
         <div class="relative h-80 w-full overflow-hidden">
           <Image
-            class="relative h-full w-full object-cover object-[80%_center] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)] sm:object-center"
-            src={CalendarImage}
+            class="relative h-full w-full object-cover object-[50%_center] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)] sm:object-center"
+            src={FormImage}
             width={672}
             height={320}
             alt="Calendario con la fecha del evento Lola Lolita Land 14 y 15 de junio de 2025"
