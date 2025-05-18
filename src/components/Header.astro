@@ -241,7 +241,7 @@ const pages = [
   }
 
   .end-state {
-    @apply bg-white/60 border-b-[#b50066] pb-6 backdrop-blur-md;
+    @apply bg-[#D4CFD6]/60 border-b-[#3b3533] pb-6 backdrop-blur-md;
   }
 
   #backdrop {
@@ -302,23 +302,4 @@ const pages = [
     display: none;
   }
 </style>
-
-<!-- <header class="py-4 px-4 mx-auto max-w-6xl lg:py-6 lg:px-6">
-	<nav class="flex flex-col items-center justify-between w-full text-center md:flex-row">
-		{
-			pages.map(({ name, href, active }, key) => (
-		<>
-			<a href={href} id={`nav-link-${key}`} class:list={[
-					"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-l uppercase lg:flex lg:px-7 xl:px-10",
-					{ "current-page text-white underline underline-offset-4": active },
-					{ "text-gray-500 hover:animate-pulse": !active },
-				]}>
-					<span class="z-12">{name}</span>
-					<div class="background absolute -z-10 h-full w-full" />
-			</a>
-		</>
-		))
-		}
-	</nav>
-</header> -->
 
