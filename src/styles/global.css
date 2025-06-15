@@ -1,2 +1,32 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("../assets/fonts/DancingScript.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("../assets/fonts/Merriweather.woff2") format("woff2");
+    font-weight: 200 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MerriweatherItalic";
+    src: url("../assets/fonts/Merriweather-Italic.woff2") format("woff2");
+    font-weight: 200 700;
+    font-style: Italic;
+    font-display: swap;
+}
+
+@theme {
+  --font-DancingScript: 'Dancing Script', system-ui, sans-serif;
+  --font-Merriweather: 'Merriweather', system-ui, sans-serif;
+  --font-Merriweather-Italic: 'MerriweatherItalic', system-ui, sans-serif;
+}
