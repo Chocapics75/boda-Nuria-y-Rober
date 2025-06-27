@@ -3,10 +3,11 @@ import { Image } from "astro:assets"
 
 import CalendarImage from "../assets/images/calendario.webp"
 import FormImage from "../assets/images/form.webp"
+import MapImage from "../assets/images/map.webp"
 ---
 
 <div class="mx-auto max-w-2xl p-4 pb-32 lg:max-w-6xl" id="info">
-    <div class="view-animate-[--subjectReveal] animate-zoom-in animate-range-[entry_0%_cover_20%] grid scroll-mt-[31rem] grid-cols-1 gap-4 pt-10 sm:mt-4 md:scroll-mt-[34rem] lg:scroll-mt-[26rem] lg:grid-cols-6" id="info">
+    <div class="view-animate-[--subjectReveal] animate-zoom-in animate-range-[entry_0%_cover_20%] grid scroll-mt-[31rem] grid-cols-1 gap-4 pt-10 sm:mt-4 md:scroll-mt-[34rem] lg:scroll-mt-[26rem] lg:grid-cols-6">
       <!-- Slot para el primer contenido que sera la fecha del evento -->
       <div class="relative lg:col-span-3">
       <div class="relative flex h-full flex-col overflow-hidden bg-white rounded-3xl">
@@ -103,7 +104,7 @@ import FormImage from "../assets/images/form.webp"
       </div>
       
       <div
-        class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem] lg:rounded-bl-[2rem]"
+        class="pointer-events-none absolute inset-px"
       >
       </div>
     </div>
@@ -151,9 +152,26 @@ import FormImage from "../assets/images/form.webp"
       </div>
       
       <div
-        class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem] lg:rounded-bl-[2rem]"
+        class="pointer-events-none absolute inset-px"
       >
       </div>
     </div>
+    <!-- Slot para el tercer contenido que sera la fecha del evento -->
+    <div class="relative lg:col-span-6">
+    <a class="relative flex h-full flex-col overflow-hidden bg-white rounded-3xl" href="https://maps.app.goo.gl/srAwcY1oZcbpqGza8" target="_blank" rel="noopener noreferrer">
+      <div class="relative h-80 w-full overflow-hidden">
+        <Image
+          class="relative h-full w-full object-cover object-[50%_center] sm:object-center"
+          src={MapImage}
+          width={1500}
+          height={800}
+          alt="Mapa de la ubicación de la boda en Finca la Espiga">
+      </div>
+    </a>
     
+    <div
+      class="pointer-events-none absolute inset-px"
+    >
+    </div>
+  </div>
 </div>
