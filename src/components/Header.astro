@@ -1,31 +1,12 @@
 ---
 
-const { pathname } = Astro.url
-const normalizedPathName = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
-
-// const pages = [
-// 	{ name: "Inicio", href: "/" },
-// 	{ name: "Nuestra historia", href: "/our-story" },
-// 	{ name: "Detalles", href: "/details" },
-// 	{ name: "Contacto", href: "/contact" },
-// ].map((page) => ({
-// 	...page,
-// 	active: normalizedPathName === page.href,
-// }))
-
-// const isProductIntern = normalizedPathName.startsWith("/nosotros/")
-
-// console.log("PATHNAME", pathname)
-// console.log("NORMALIZED", normalizedPathName)
-// console.log("INTERN", isProductIntern)
-
 const pages = [
 	{ name: "Info", href: "/#info" },
 	{ name: "Detalles", href: "/#details" },
 	{ name: "Nuestra historia", href: "/#our-story" },
+  { name: "Galería", href: "/#gallery" },
 	{ name: "Contacto", href: "/#contact" },
 	
-	//{ name: "Aut. Menores", href: "/hoja-de-responsabilidad.pdf", target: "_blank" },
 ]
 
 ---
@@ -39,19 +20,13 @@ const pages = [
 		{
 			pages.map(({ name, href}, key) => (
 				<>
-					<a href={href} id={`nav-link-${key}`} class:list={["relative text-sm/6 font-semibold text-white after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full",]}>
+					<a href={href} id={`nav-link-${key}`} class:list={["relative text-sm/6 font-extralight font-Merriweather text-white after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full",]}>
 						<span class="z-12">{name}</span>
 						<div class="background absolute -z-10 h-full w-full" />
 					</a>
 				</>
 			))
 		}
-
-        <!-- <a
-          href="/hoja-de-responsabilidad.pdf"
-          class="relative text-sm/6 font-semibold text-white after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-          target="_blank">Aut. Menores</a
-        > -->
       </div>
       <div class="flex lg:hidden">
         <button
@@ -112,28 +87,13 @@ const pages = [
 		{
 			pages.map(({ name, href}, key) => (
 				<>
-					<a href={href} id={`nav-link-${key}`} class:list={["hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600 hover:bg-white",]}>
+					<a href={href} id={`nav-link-${key}`} class:list={["hover:text-primary-light font-Merriweather border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-600 hover:bg-white",]}>
 						<span class="z-12">{name}</span>
 						<div class="background absolute -z-10 h-full w-full" />
 					</a>
 				</>
 			))
 		}
-        <!-- <a
-          href="/#info"
-          class="hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white"
-          >Info</a
-        >
-        <a
-          href="/#faq"
-          class="hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white"
-          >Preguntas</a
-        >
-        <a
-          href="/hoja-de-responsabilidad.pdf"
-          class="hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white"
-          >Aut. Menores</a
-        > -->
       </div>
     </div>
   </dialog>
