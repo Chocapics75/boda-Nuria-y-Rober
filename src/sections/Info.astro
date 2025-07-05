@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets"
 
-import CalendarImage from "../assets/images/calendario.webp"
-import FormImage from "../assets/images/form.webp"
-import MapImage from "../assets/images/map.webp"
+import CalendarImage from "@/assets/images/calendario.webp"
+import FormImage from "@/assets/images/form.webp"
+import MapImage from "@/assets/images/map.webp"
 ---
 
-<div class="mx-auto max-w-2xl p-4 pb-32 lg:max-w-6xl" id="info">
-    <div class="view-animate-[--subjectReveal] animate-zoom-in animate-range-[entry_0%_cover_20%] grid scroll-mt-[31rem] grid-cols-1 gap-4 pt-10 sm:mt-4 md:scroll-mt-[34rem] lg:scroll-mt-[26rem] lg:grid-cols-6">
+<section class="mx-auto max-w-2xl p-4 pb-16 lg:max-w-6xl" id="info">
+    <section class="view-animate-[--subjectReveal] animate-zoom-in animate-range-[entry_0%_cover_20%] grid scroll-mt-[31rem] grid-cols-1 gap-4 pt-10 sm:mt-4 md:scroll-mt-[34rem] lg:scroll-mt-[26rem] lg:grid-cols-6">
       <!-- Slot para el primer contenido que sera la fecha del evento -->
       <div class="relative lg:col-span-3">
       <div class="relative flex h-full flex-col overflow-hidden bg-white rounded-3xl">
@@ -174,4 +174,4 @@ import MapImage from "../assets/images/map.webp"
     >
     </div>
   </div>
-</div>
+</section>
