@@ -1,55 +1,63 @@
 ---
+import ThreeImage from "@/assets/images/logo/3.png"
+import { Image } from "astro:assets"
 
 const pages = [
-	{ name: "Info", href: "/#info" },
 	{ name: "Detalles", href: "/#details" },
-	{ name: "Nuestra historia", href: "/#our-story" },
-  { name: "Galería", href: "/#gallery" },
-	{ name: "Contacto", href: "/#contact" },
+	{ name: "Nuestra historia", href: "/our-story" },
+  { name: "Galería", href: "/gallery" },
+	{ name: "Información", href: "/info" },
+	{ name: "Contacto", href: "/contact" },
 	
 ]
 
 ---
 <header class="animate-blur-header fixed top-0 z-60 w-screen">
-  <nav
+  <nav  
     class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 pb-0 uppercase lg:px-8"
     aria-label="Global"
   >
-    <div class="flex">
-      <div class="hidden lg:flex lg:gap-x-12">
-		{
-			pages.map(({ name, href}, key) => (
-				<>
-					<a href={href} id={`nav-link-${key}`} class:list={["relative text-sm/6 font-extralight font-Merriweather text-white after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full",]}>
-						<span class="z-12">{name}</span>
-						<div class="background absolute -z-10 h-full w-full" />
-					</a>
-				</>
-			))
-		}
-      </div>
-      <div class="flex lg:hidden">
-        <button
-          type="button"
-          id="open-menu-button"
-          class="-m-2.5 inline-flex cursor-pointer items-center justify-center rounded-md p-2.5 text-white transition-all duration-300 will-change-transform hover:scale-150"
-        >
-          <span class="sr-only">Abrir Menú Principal</span>
-          <svg
-            class="size-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
+    <div class="flex items-center gap-x-1 mr-7">
+      <a href="/" id="home" >
+        <Image src={ThreeImage} alt="Logo 1" width={32} height={32} class="mr-7 rounded-full sm:h-10 sm:w-10" />
+      </a>
+      
+      <div class="flex">
+        <div class="hidden lg:flex lg:gap-x-12">
+        {
+          pages.map(({ name, href}, key) => (
+            <>
+              <a href={href} id={`nav-link-${key}`} class:list={["relative text-sm/6 font-extralight font-Merriweather text-white after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full",]}>
+                <span class="z-12">{name}</span>
+                <div class="background absolute -z-10 h-full w-full" />
+              </a>
+            </>
+          ))
+        }
+        </div>
+        <div class="flex lg:hidden">
+          <button
+            type="button"
+            id="open-menu-button"
+            class="-m-2.5 inline-flex cursor-pointer items-center justify-center rounded-md p-2.5 text-white transition-all duration-300 will-change-transform hover:scale-150"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-          </svg>
-        </button>
+            <span class="sr-only">Abrir Menú Principal</span>
+            <svg
+              class="size-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
