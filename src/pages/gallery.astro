@@ -1,4 +1,5 @@
 ---
+import SectionDivider from "@/components/SectionDivider.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
 import { galleryImages } from "@/consts/galleryImages"
 import Layout from "@/layouts/Layout.astro"
@@ -12,7 +13,8 @@ import { Image } from "astro:assets"
         <div class="relative mb-12 flex items-center justify-center pt-14">
           <SectionTitle title="Galería" />
         </div>
-        <p class="block pb-20 text-center text-lg font-light text-black font-Merriweather max-md:px-6 max-md:pb-5">
+        <SectionDivider />
+        <p class="block pb-20 text-justify lg:text-center text-lg font-light text-black font-Merriweather max-md:px-6 max-md:pb-5">
           Disfrutad de nuestra historia a través de estas imágenes: casi 11 años de recuerdos que aún nos hacen sonreír 📸❤️
         </p>
 

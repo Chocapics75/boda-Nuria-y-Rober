@@ -4,6 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import SectionTitle from '@/components/SectionTitle.astro'
 import { Image } from 'astro:assets';
 import OurStoryImage from "@/assets/images/OurStory.webp"
+import SectionDivider from '@/components/SectionDivider.astro';
 
 ---
 <Layout>
@@ -11,8 +12,8 @@ import OurStoryImage from "@/assets/images/OurStory.webp"
         <div class="relative mb-12 pt-10 flex items-center justify-center">
             <SectionTitle title="Contacto" />
         </div>
+        <SectionDivider />
         <section class="flex items-center justify-center gap-4 sm:mt-4 md:scroll-mt-[34rem]">
-        <!-- Slot para el tercer contenido que sera la fecha del evento -->
             <div class="relative">
                 <div class="relative lg:w-4xl overflow-hidden rounded-3xl">
                     <Image
@@ -26,7 +27,7 @@ import OurStoryImage from "@/assets/images/OurStory.webp"
             </div>
         </section>
 
-        <p class="block text-lg lg:text-xl text-black font-Merriweather text-center max-md:px-6 max-md:pb-5 pt-10">
+        <p class="block text-lg lg:text-xl text-black font-Merriweather text-justify lg:text-center max-md:px-6 max-md:pb-5 pt-10">
             A continuación, os dejamos nuestros datos de contacto para cualquier duda que necesitéis resolver. 
             <br/>Así como, la información para el aspecto más controversial de las bodas: el regalo 🎁
             <br/> Estamos deseando veros en el día más importante de nuestras vidas.

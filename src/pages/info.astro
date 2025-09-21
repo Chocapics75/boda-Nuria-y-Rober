@@ -5,13 +5,15 @@ import SectionTitle from '@/components/SectionTitle.astro'
 
 import TimeLine from '@/assets/images/TimelineDay.webp';
 import { Image } from "astro:assets"
+import SectionDivider from '@/components/SectionDivider.astro';
 ---
 <Layout>
     <section class="mx-auto max-w-2xl p-4 pb-16 lg:max-w-6xl" >
         <div class="relative mb-12 pt-20 flex items-center justify-center">
             <SectionTitle title="Itinerario" />
         </div>
-        <p class="block pb-10 text-center text-lg text-black font-Merriweather max-md:px-6 max-md:pb-5">
+        <SectionDivider />
+        <p class="block pb-10 text-justify lg:text-center text-lg text-black font-Merriweather max-md:px-6 max-md:pb-5">
             Nuestra boda será de día, las mismas horas de fiesta pero con más horas de sol y luz natural ☀️🌄
             <br/> Próximamente os confirmaremos los horarios exactos⌛
         </p>
