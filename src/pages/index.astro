@@ -4,21 +4,19 @@ import Layout from '../layouts/Layout.astro'
 
 
 import Hero from '@/sections/Hero.astro'
-import Info from '@/sections/Info.astro'
+import Details from '@/sections/Details.astro'
 import OurStory from '@/sections/Our-Story.astro'
-import Gallery from '@/sections/Gallery.astro'
 
 import SectionDivider from '@/components/SectionDivider.astro'
+import Address from '@/sections/Address.astro'
 ---
 
 <Layout>
 	<Hero />
 	<SectionDivider />
 	<Countdown />
-	<SectionDivider />
-	<Info />
-	<SectionDivider />
-	<OurStory />
-	<SectionDivider />
-	<Gallery />
+	<SectionDivider id="details"/>
+	<Details />
+	<SectionDivider id="details"/>
+	<Address />
 </Layout>
