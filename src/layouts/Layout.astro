@@ -6,6 +6,7 @@ const preloadImg = "/images/hero.webp"
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import { ViewTransitions } from "astro:transitions"
 ---
 
 <!doctype html>
@@ -32,7 +33,10 @@ import Footer from '../components/Footer.astro'
 	<body class="bg-linear-to-b from-[#C1D4DA] to-[#2B9FA5] min-h-screen pb-32">
 		<Header />
 		<slot />
-		<Footer />
+		<audio id="player" controls autoplay>
+      		<source src="/music.mp3" type="audio/mp3" />
+    	</audio>
+		<Footer/>
 	</body>
 </html>
 
@@ -44,3 +48,4 @@ import Footer from '../components/Footer.astro'
 		color-scheme: dark light;
 	}
 </style>
+
