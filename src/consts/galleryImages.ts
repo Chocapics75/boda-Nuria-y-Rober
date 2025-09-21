@@ -83,9 +83,7 @@ import GalleryImg81 from "@/assets/images/gallery/gallery_81.webp"
 import GalleryImg82 from "@/assets/images/gallery/gallery_82.webp"
 import GalleryImg83 from "@/assets/images/gallery/gallery_83.webp"
 import GalleryImg84 from "@/assets/images/gallery/gallery_84.webp"
-import GalleryImg85 from "@/assets/images/gallery/gallery_85.webp"
 import GalleryImg86 from "@/assets/images/gallery/gallery_86.webp"
-import GalleryImg87 from "@/assets/images/gallery/gallery_87.webp"
 import GalleryImg88 from "@/assets/images/gallery/gallery_88.webp"
 import GalleryImg89 from "@/assets/images/gallery/gallery_89.webp"
 import GalleryImg90 from "@/assets/images/gallery/gallery_90.webp"
@@ -111,7 +109,6 @@ import GalleryImg109 from "@/assets/images/gallery/gallery_109.webp"
 import GalleryImg110 from "@/assets/images/gallery/gallery_110.webp"
 import GalleryImg111 from "@/assets/images/gallery/gallery_111.webp"
 import GalleryImg112 from "@/assets/images/gallery/gallery_112.webp"
-import GalleryImg113 from "@/assets/images/gallery/gallery_113.webp"
 import GalleryImg114 from "@/assets/images/gallery/gallery_114.webp"
 
 export const galleryImages = [
@@ -536,19 +533,9 @@ export const galleryImages = [
     thumb: "thumb84",
   },
   {
-    image: GalleryImg85,
-    alt: "Imagen 85 de la galería.",
-    thumb: "thumb85",
-  },
-  {
     image: GalleryImg86,
     alt: "Imagen 86 de la galería.",
     thumb: "thumb86",
-  },
-  {
-    image: GalleryImg87,
-    alt: "Imagen 87 de la galería.",
-    thumb: "thumb87",
   },
   {
     image: GalleryImg88,
@@ -674,11 +661,6 @@ export const galleryImages = [
     image: GalleryImg112,
     alt: "Imagen 112 de la galería.",
     thumb: "thumb112",
-  },
-  {
-    image: GalleryImg113,
-    alt: "Imagen 113 de la galería.",
-    thumb: "thumb113",
   },
   {
     image: GalleryImg114,
