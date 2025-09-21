@@ -1,0 +1,53 @@
+---
+
+import Layout from '@/layouts/Layout.astro';
+import SectionTitle from '@/components/SectionTitle.astro'
+import { Image } from 'astro:assets';
+import OurStoryImage from "@/assets/images/OurStory.webp"
+
+---
+<Layout>
+    <section class="mx-auto max-w-2xl p-4 lg:max-w-6xl pt-10" >
+        <div class="relative mb-12 pt-10 flex items-center justify-center">
+            <SectionTitle title="Contacto" />
+        </div>
+        <section class="flex items-center justify-center gap-4 sm:mt-4 md:scroll-mt-[34rem]">
+        <!-- Slot para el tercer contenido que sera la fecha del evento -->
+            <div class="relative">
+                <div class="relative lg:w-4xl overflow-hidden rounded-3xl">
+                    <Image
+                        class="relative w-full object-cover object-[50%_center] sm:object-center"
+                        src={OurStoryImage}
+                        width={1500}
+                        height={500}
+                        alt="Imagen de la Finca la Espiga">
+                </div>
+                <div class="pointer-events-none absolute inset-px"></div>
+            </div>
+        </section>
+
+        <p class="block text-lg lg:text-xl text-gray-700 font-Merriweather text-center max-md:px-6 max-md:pb-5 pt-10">
+            A continuación, os dejamos nuestros datos de contacto para cualquier duda que necesitéis resolver. 
+            <br/>Así como, la información para el aspecto más controversial de las bodas: el regalo 🎁
+            <br/> Estamos deseando veros en el día más importante de nuestras vidas.
+            <br/> Os queremos. ¡Un abrazo fuerte de parte de los dos! 🤗
+            <br/> <strong>Nuria y Rober</strong>
+        </p>
+        <hr class="my-8"/>
+        <ul class="list-disc list-inside mb-4 text-lg"> <strong>Teléfono de contacto</strong> (Llamadas/WhatsApp/Bizum):
+                <li class="ml-4"><a href="tel:+34630377060" class="text-blue-600 hover:underline">630 37 70 60</a> (Rober)</li>
+                <li class="ml-4"><a href="tel:+34639040578" class="text-blue-600 hover:underline">639 04 05 78</a> (Nuria)</li>
+            </ul>
+            <ul class="list-disc list-inside mb-4 text-lg"> <strong>Correo electrónico</strong> :
+                <li class="ml-4"><a href="mailto:bodanuriyrober@gmail.com" class="text-blue-600 hover:underline">bodanuriyrober@gmail.com</a> (Común)</li>
+                <li class="ml-4"><a href="mailto:robertfemu45@gmail.com" class="text-blue-600 hover:underline">robertfemu45@gmail.com</a> (Rober)</li>
+                <li class="ml-4"><a href="mailto:nuriagonz97@gmail.com" class="text-blue-600 hover:underline">nuriagonz97@gmail.com</a> (Nuria) </li>
+            </ul>
+            <ul class="list-disc list-inside mb-4 text-lg"> <strong>Numero de cuenta</strong> :
+                <li class="ml-4">Añadir numero</li>
+            </ul>
+        <p class="block text-lg text-gray-700 font-Merriweather lg:text-justify max-md:px-6 max-md:pb-5">
+            
+        </p>
+    </section>
+</Layout>
