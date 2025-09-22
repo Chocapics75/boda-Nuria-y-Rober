@@ -1,6 +1,7 @@
 ---
 import Logo from "@/assets/images/logo/logo.png"
 import { Image } from "astro:assets"
+import { Player } from "./Player"
 
 const pages = [
 	{ name: "Detalles", href: "/#details" },
@@ -61,6 +62,7 @@ const pages = [
         </div>
       </div>
     </div>
+    <Player client:load transition:name="media-player" />
 
   </nav>
   <dialog
