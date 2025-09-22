@@ -3,6 +3,7 @@ import '../styles/global.css'
 
 const { title = 'Nuria y Rober' } = Astro.props
 const preloadImg = "/images/hero.webp"
+const preloadAudio = "/music.mp3"
 
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
@@ -15,6 +16,7 @@ import { Player } from '@/components/Player'
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="preload" as="image" href={preloadImg} />
+		<link rel="preload" as="audio" href={preloadAudio} />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<title>{title}</title>
 		<meta name="description" content="Boda de Nuria y Rober. Te esperamos el 25 de abril de 2026 en Finca la Espiga. Un día para disfrutar con amigos y familiares, y crear recuerdos juntos." />

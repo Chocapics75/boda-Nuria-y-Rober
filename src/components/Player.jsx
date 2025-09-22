@@ -40,7 +40,7 @@ export function Player() {
 
             <div className="grid place-content-center gap-4 flex-1">
                 <div className="flex justify-center">
-                    <button className="bg-white rounded-full p-2" onClick={handleClick}>
+                    <button className="bg-white rounded-full p-2 text-black" onClick={handleClick}>
                         {isPlaying ? "Pausa" : "Reproducir"}
                     </button>
                 </div>
