@@ -9,13 +9,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.1",
     "@midudev/tailwind-animations": "^0.2.0",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "astro": "^5.7.4",
     "countdown": "^2.6.0",
     "dom-selector": "^0.1.0",
     "globalthis": "^1.0.4",
     "preact": "^10.26.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "sharp": "^0.34.1",
     "tailwindcss": "^4.1.4"
   }
