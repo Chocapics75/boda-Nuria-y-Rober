@@ -81,5 +81,11 @@ const TIMESTAMP = 1777122000000
       setInterval(updateCountdown, SECOND)
     }
 
-  init()
+    // 1) Llamamos la primera vez al cargar
+    init()
+
+    // 2) Nos suscribimos a los cambios de página con astro:transitions
+    document.addEventListener("astro:after-swap", () => {
+      init();
+    });
 </script>

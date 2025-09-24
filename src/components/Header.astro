@@ -1,7 +1,7 @@
 ---
 import Logo from "@/assets/images/logo/logo.png"
 import { Image } from "astro:assets"
-import { Player } from "./Player"
+import { Player} from "./Player"
 
 const pages = [
 	{ name: "Detalles", href: "/#details" },
@@ -14,11 +14,12 @@ const pages = [
 ]
 
 ---
-<header class="animate-blur-header fixed top-0 z-60 w-screen">
+<header class="animate-blur-header fixed top-0 z-60 w-screen pb-4 backdrop-blur-md">
   <nav  
-    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 pb-0 uppercase lg:px-8"
+    class="mx-auto flex max-w-6xl items-center px-4 py-6 pb-0 uppercase lg:px-8"
     aria-label="Global"
   >
+  <Player client:load transition:name="media-player" transition:persist/>
     <div class="flex items-center gap-x-1 mr-7">
       <a href="/" id="home" >
         <Image src={Logo} alt="Logo" width={32} height={32} class="mr-7 rounded-full sm:h-10 sm:w-10" />
@@ -62,7 +63,6 @@ const pages = [
         </div>
       </div>
     </div>
-    <Player client:load transition:name="media-player" />
 
   </nav>
   <dialog
@@ -115,89 +115,98 @@ const pages = [
 <div data-target class="absolute top-[150px]"></div>
 
 <script>
-  // Get the menu elements
-  const mobileMenu = document.getElementById("mobile-menu") as HTMLDialogElement
-  const openMenuButton = document.getElementById("open-menu-button")
-  const closeMenuButton = document.getElementById("close-menu-button")
-  const mobileItems = mobileMenu.querySelectorAll("a")
-  const backdrop = document.getElementById("backdrop")
+  function init() {
+    // Get the menu elements
+    const mobileMenu = document.getElementById("mobile-menu") as HTMLDialogElement
+    const openMenuButton = document.getElementById("open-menu-button")
+    const closeMenuButton = document.getElementById("close-menu-button")
+    const mobileItems = mobileMenu.querySelectorAll("a")
+    const backdrop = document.getElementById("backdrop")
 
-  const toggleMenu = () => {
-    mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal()
+    const toggleMenu = () => {
+      mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal()
 
-    if (mobileMenu.open) {
-      backdrop?.classList.add("visible")
-    } else {
-      backdrop?.classList.remove("visible")
+      if (mobileMenu.open) {
+        backdrop?.classList.add("visible")
+      } else {
+        backdrop?.classList.remove("visible")
+      }
+    }
+
+    // Add event listener to open menu button
+    openMenuButton?.addEventListener("click", toggleMenu)
+
+    // Add event listener to close menu button
+    closeMenuButton?.addEventListener("click", toggleMenu)
+
+    document.addEventListener("click", (event) => {
+      const isClickInsideMenu = mobileMenu.contains(event.target as Node)
+      const isClickInsideButton = openMenuButton?.contains(event.target as Node)
+
+      if (isClickInsideMenu && !isClickInsideButton) {
+        mobileMenu.close()
+        backdrop?.classList.remove("visible")
+      }
+    })
+
+    mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu))
+
+    const target = document.querySelector("[data-target]")
+    const header = document.querySelector("header")
+    const ticketsButton = document.getElementById("tickets-button")
+
+    const handleIntersection = ([entry]: IntersectionObserverEntry[]) => {
+      if (entry.isIntersecting) {
+        ticketsButton?.classList.add(
+          "from-[#ff0695]",
+          "via-[#ff99d1]",
+          "to-[#ff0695]",
+          "shadow-[#ff0695]/30",
+          "hover:shadow-[#ff0695]/40"
+        )
+        ticketsButton?.classList.remove(
+          "from-[#383acf]",
+          "via-[#8688ff]",
+          "to-[#383acf]",
+          "shadow-[#383acf]/30",
+          "hover:shadow-[#383acf]/40"
+        )
+        header?.classList.remove("end-state")
+      } else {
+        ticketsButton?.classList.remove(
+          "from-[#ff0695]",
+          "via-[#ff99d1]",
+          "to-[#ff0695]",
+          "shadow-[#ff0695]/30",
+          "hover:shadow-[#ff0695]/40"
+        )
+        ticketsButton?.classList.add(
+          "from-[#383acf]",
+          "via-[#8688ff]",
+          "to-[#383acf]",
+          "shadow-[#383acf]/30",
+          "hover:shadow-[#383acf]/40"
+        )
+        header?.classList.add("end-state")
+      }
+    }
+
+    const createObserver = (target: Element, callback: IntersectionObserverCallback) => {
+      const observer = new IntersectionObserver(callback, { threshold: 0.5 })
+      observer.observe(target)
+    }
+
+    if (target) {
+      createObserver(target, handleIntersection)
     }
   }
 
-  // Add event listener to open menu button
-  openMenuButton?.addEventListener("click", toggleMenu)
+  init()
 
-  // Add event listener to close menu button
-  closeMenuButton?.addEventListener("click", toggleMenu)
-
-  document.addEventListener("click", (event) => {
-    const isClickInsideMenu = mobileMenu.contains(event.target as Node)
-    const isClickInsideButton = openMenuButton?.contains(event.target as Node)
-
-    if (isClickInsideMenu && !isClickInsideButton) {
-      mobileMenu.close()
-      backdrop?.classList.remove("visible")
-    }
-  })
-
-  mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu))
-
-  const target = document.querySelector("[data-target]")
-  const header = document.querySelector("header")
-  const ticketsButton = document.getElementById("tickets-button")
-
-  const handleIntersection = ([entry]: IntersectionObserverEntry[]) => {
-    if (entry.isIntersecting) {
-      ticketsButton?.classList.add(
-        "from-[#ff0695]",
-        "via-[#ff99d1]",
-        "to-[#ff0695]",
-        "shadow-[#ff0695]/30",
-        "hover:shadow-[#ff0695]/40"
-      )
-      ticketsButton?.classList.remove(
-        "from-[#383acf]",
-        "via-[#8688ff]",
-        "to-[#383acf]",
-        "shadow-[#383acf]/30",
-        "hover:shadow-[#383acf]/40"
-      )
-      header?.classList.remove("end-state")
-    } else {
-      ticketsButton?.classList.remove(
-        "from-[#ff0695]",
-        "via-[#ff99d1]",
-        "to-[#ff0695]",
-        "shadow-[#ff0695]/30",
-        "hover:shadow-[#ff0695]/40"
-      )
-      ticketsButton?.classList.add(
-        "from-[#383acf]",
-        "via-[#8688ff]",
-        "to-[#383acf]",
-        "shadow-[#383acf]/30",
-        "hover:shadow-[#383acf]/40"
-      )
-      header?.classList.add("end-state")
-    }
-  }
-
-  const createObserver = (target: Element, callback: IntersectionObserverCallback) => {
-    const observer = new IntersectionObserver(callback, { threshold: 0.5 })
-    observer.observe(target)
-  }
-
-  if (target) {
-    createObserver(target, handleIntersection)
-  }
+  // 2) Nos suscribimos a los cambios de página con astro:transitions
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
 </script>
 
 <style>

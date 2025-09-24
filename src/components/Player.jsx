@@ -1,39 +1,39 @@
-import { useEffect, useRef, useState } from "react";
+import {useRef, useState } from "react";
 
 export function Player() {
-  const audioRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef();
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const audio = audioRef.current;
-
-    // Restaurar estado al montar
-    const savedTime = localStorage.getItem("audioTime");
-    const savedPlaying = localStorage.getItem("audioPlaying") === "true";
-
-    if (savedTime) audio.currentTime = parseFloat(savedTime);
-    if (savedPlaying) {
-      audio.play().catch(() => {}); // evitar error si autoplay bloqueado
-      setPlaying(true);
+  const handleClick = () => {
+    if (!isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
-
-    // Guardar periódicamente
-    const interval = setInterval(() => {
-      localStorage.setItem("audioTime", audio.currentTime);
-      localStorage.setItem("audioPlaying", !audio.paused);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    setIsPlaying(!isPlaying);
+  }
 
   return (
-    <audio
-      ref={audioRef}
-      src="/music.mp3"
-      controls
-      onPlay={() => setPlaying(true)}
-      onPause={() => setPlaying(false)}
-      className="h-6 "
-    />
+    <div className="flex flex-row justify-between px-4 z-50">
+
+      <div className="flex justify-center">
+        <button className="bg-white text-black rounded-full p-2"
+          onClick={handleClick}>
+            {isPlaying ? 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+            : 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+              </svg>
+            }   
+          </button>
+      </div>
+
+      <audio ref={audioRef} src="/music.mp3"/>
+    </div>
+    
   );
 }
